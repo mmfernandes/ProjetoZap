@@ -13,6 +13,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity
 {
+
+    //definição das variaveis
     private TextInputLayout num_Telefone;
     private TextInputLayout _mensagem;
 
@@ -38,11 +40,15 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onClick(View v)
                     {
-                        String telefone = textInput_Telefone.getText().toString();
+                        String telefone = textInput_Telefone.getText().toString(); //convertendo para string
                         String mensagem = getTextInput_Mensagem.getText().toString();
+                        telefone  = Space(telefone);
 
                         String zap = LinkZap(telefone,mensagem);
                         openWebPage(zap);
+
+                        
+
                     }
 
                 }
@@ -55,7 +61,14 @@ public class MainActivity extends AppCompatActivity
         return ("https://wa.me/" + telefone + "?text=" + mensagem);
 
     }
-    public void openWebPage(String zap) {
+    public String Space(String telefone)
+    {
+        telefone = telefone.replace(" ", ""); // string para substituir o espaço e evitar erro ao enviar mensagem
+        return telefone ;
+
+    }
+    public void openWebPage(String zap)
+    {
         Uri webpage = Uri.parse(zap);
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
 
