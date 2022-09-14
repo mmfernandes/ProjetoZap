@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity
                         String zap = LinkZap(telefone,mensagem);
                         openWebPage(zap);
 
-                        
-
                     }
 
                 }
